@@ -13,20 +13,20 @@ private fun two() {
     println("Que.2-> " + a.contentToString())
 }
 
-fun three() {
+private fun three() {
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     // Print the third element of the array.
     println("Que.3-> " + arr[2])
 }
 
-fun four() {
+private fun four() {
     // Change the value of the second element to 5.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     arr[1] = 5
     println("Que.4-> " + arr.contentToString())
 }
 
-fun five() {
+private fun five() {
     // Print all elements of the array using a loop.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     print("Que.5-> ")
@@ -36,7 +36,7 @@ fun five() {
     println()
 }
 
-fun six() {
+private fun six() {
     // Calculate the sum of all elements in the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     val sum1 = arr.sum()
@@ -48,7 +48,7 @@ fun six() {
     println("Que.6(b)-> Sum of the all elements of Array is: $sum2")
 }
 
-fun seven() {
+private fun seven() {
     // Find the largest element in the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
 //    val largest = arr.maxOrNull()
@@ -59,7 +59,7 @@ fun seven() {
     println("Que.7-> The largest element in the array: $largest")
 }
 
-fun eight() {
+private fun eight() {
     // Find the smallest element in the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
 //    val smallest = arr.minOrNull()
@@ -70,7 +70,7 @@ fun eight() {
     println("Que.8-> The smallest element in the array: $smallest")
 }
 
-fun nine() {
+private fun nine() {
     // Double the value of each element in the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     print("Que.9-> ")
@@ -80,7 +80,7 @@ fun nine() {
     println(arr.contentToString())
 }
 
-fun ten() {
+private fun ten() {
     // Reverse the elements of the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     for (i in 0..<arr.size / 2) {
@@ -94,7 +94,7 @@ fun ten() {
     println("Que.10(b)-> " + arr.contentToString())
 }
 
-fun eleven() {
+private fun eleven() {
     // Check if the array contains the value 7.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     // Check if the array contains the value 7.
@@ -112,7 +112,7 @@ fun eleven() {
     else println("Que.11(b)-> no the array is not contains the value 7.")
 }
 
-fun twelve() {
+private fun twelve() {
     // Replace all occurrences of 3 with 0 in the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     for (i in arr.indices) {
@@ -123,74 +123,107 @@ fun twelve() {
     println("Que.12-> " + arr.contentToString())
 }
 
-fun thirteen() {
+private fun thirteen() {
     // Remove the first element of the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
-    val newArr = arr.drop(1).toIntArray()
+    val newArr = IntArray(arr.size - 1)
+    for (i in 1 until arr.size){
+        newArr[i-1] = arr[i]
+    }
     println("Que thirteen.1-> " + newArr.contentToString())
 
     // Shift left and zero out the last element
-    val shiftedArr = arr.copyOf()
-    for (i in 0 until shiftedArr.size - 1) {
-        shiftedArr[i] = shiftedArr[i + 1]
+    for (i in 0 until arr.size - 1) {
+        arr[i] = arr[i + 1]
     }
-    shiftedArr[shiftedArr.size - 1] = 0
-    println("Que thirteen.2-> " + shiftedArr.contentToString())
+    arr[arr.size - 1] = 0
+    println("Que thirteen.2-> " + arr.contentToString())
 }
 
-fun fourteen() {
+private fun fourteen() {
     // Add a new element with the value 8 to the end of the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
-    val newArr = arr.plus(8)
+    val newArr = IntArray(arr.size+1)
+    for (i in arr.indices){
+        newArr[i] = arr[i]
+    }
+    newArr[newArr.size-1] = 8
     println("Que fourteen-> " + newArr.contentToString())
 }
 
-fun fifteen() {
+private fun fifteen() {
     // Sort the array in ascending order.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
+    for (i in arr.indices){
+        for (j in 0 until arr.size-1-i){
+            if (arr[j]>arr[j+1]){
+                val temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+            }
+        }
+    }
     arr.sort()
     println("Que fifteen-> " + arr.contentToString())
 }
 
-fun sixteen() {
+private fun sixteen() {
     // Create a copy of the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
-    val newArr = arr.copyOf()
+    val newArr = IntArray(arr.size)
+    for (i in arr.indices) {
+        newArr[i] = arr[i]
+    }
     println("Que sixteen-> " + newArr.contentToString())
 }
 
-fun seventeen() {
+private fun seventeen() {
     // Clear all elements of the array.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
-    arr.fill(0)
+    for (i in arr.indices) {
+        arr[i] = 0
+    }
+    // by using in build function.
+//    Arrays.fill(arr, 0)
     println("Que seventeen-> " + arr.contentToString())
 }
 
-fun eighteen() {
+private fun eighteen() {
     // Check if the array is empty.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
     if (arr.isNotEmpty()) {
         println("Que eighteen-> Array is not empty")
     } else {
-        println("Que eighteen-> Array is empty")
+        println("Que eighteen-> Array is not empty")
     }
 }
 
-fun nineteen() {
+private fun nineteen() {
     // Find the index of the element with the value 5.
     val arr = intArrayOf(1, 4, 3, 8, 5, 2, 6, 7, 8, 3, 9)
-    val index = arr.indexOf(5)
-    if (index != -1) {
-        println("Que nineteen-> Index of 5 is: $index")
+    for (i in arr.indices) {
+        if (arr[i] == 5) {
+            println("Que nineteen-> Index of 5 is: $i")
+        }
     }
 }
 
-fun twenty() {
+private fun twenty() {
     // Concatenate two arrays into a new array.
     val a = intArrayOf(1, 4, 3, 8, 5, 2)
     val b = intArrayOf(6, 7, 8, 3, 9)
-    val c = a + b
-    println("Que twenty-> " + c.contentToString())
+    val c1 = a + b
+    println("Que twenty(a)-> " + c1.contentToString())
+
+    val c2 = IntArray(a.size + b.size)
+
+    for (i in a.indices) {
+        c2[i] = a[i]
+    }
+    for (j in b.indices) {
+        c2[a.size + j] = b[j]
+    }
+    println("Que twenty(b)-> " + c2.contentToString())
 }
 
 fun main() {
@@ -206,4 +239,12 @@ fun main() {
     ten()
     eleven()
     twelve()
+    thirteen()
+    fourteen()
+    fifteen()
+    sixteen()
+    seventeen()
+    eighteen()
+    nineteen()
+    twenty()
 }
